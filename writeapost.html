@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Write a Post | BestBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta name="description" content="Create a new post on BestBlog">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Neuton:wght@700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap & Main Styles -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header class="navigation">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="index.html">BestBlog</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin.html">Admin Dashboard</a></li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Currently logged in as John Smith
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                            <li><a class="dropdown-item" href="settings.html">Settings</a></li>
+                            <li><a class="dropdown-item" href="logout.html">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <h2 class="section-title">Write a New Post</h2>
+      <form action="submit_post.php" method="POST" enctype="multipart/form-data" class="post-form">
+        <div class="mb-3">
+          <label for="title" class="form-label">Post Title</label>
+          <input type="text" id="title" name="title" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="cover-image" class="form-label">Cover Image</label>
+          <input type="file" id="cover-image" name="cover-image" class="form-control" accept="image/*">
+        </div>
+        <div class="mb-3">
+          <label for="content" class="form-label">Post Content</label>
+          <textarea id="content" name="content" rows="10" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Publish Post</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="bg-dark mt-5">
+    <div class="container section">
+      <div class="row">
+        <div class="col-lg-10 mx-auto text-center">
+          <ul class="navbar-footer p-0 d-flex justify-content-center mb-0">
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="article.html" class="nav-link">Content</a></li>
+            <li><a href="privacy-policy.html" class="nav-link">Privacy Policy</a></li>
+            <li><a href="terms-conditions.html" class="nav-link">Terms & Conditions</a></li>
+            <li><a href="404.html" class="nav-link">Page Not Found</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS Plugins -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <script src="plugins/bootstrap/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
