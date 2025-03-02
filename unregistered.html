@@ -27,18 +27,23 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="unregistered.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="unregistered.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="unregistered.html">Contact</a></li>
                 </ul>
                 <!-- User Info Dropdown on the right -->
-                <ul class="navbar-nav ml-auto"> <!-- 'ml-auto' aligns to the right -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Click to log in or sign up!
-                        </a>
-                    </li>
-                </ul>
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Click here to Login
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="registered.html">Login as John</a></li>
+                        <li><a class="dropdown-item" href="index.html">Login as Admin</a></li>
+                        <li><a class="dropdown-item" href="unregistered.html">Logout</a></li>
+                      </ul>
+                  </li>
+              </ul>
             </div>
         </nav>
     </div>
@@ -79,12 +84,6 @@
 
         <!-- Sidebar with widgets -->
         <div class="col-lg-4">
-          <div class="widget">
-            <img src="images/author.jpg" alt="About Me" class="w-100">
-            <h2>Jane Doe</h2>
-            <p>Passionate writer and tech enthusiast. I love to explore the intersection of culture, history, and modern innovations.</p>
-            <a href="about.html" class="btn btn-outline-primary">Learn More About Me</a>
-          </div>
 
           <div class="widget">
             <h2>Editor’s Picks</h2>
@@ -116,11 +115,11 @@
       <div class="row">
         <div class="col-lg-10 mx-auto text-center">
           <ul class="navbar-footer p-0 d-flex justify-content-center mb-0">
-            <li><a href="about.html" class="nav-link">About</a></li>
-            <li><a href="article.html" class="nav-link">Content</a></li>
-            <li><a href="privacy-policy.html" class="nav-link">Privacy Policy</a></li>
-            <li><a href="terms-conditions.html" class="nav-link">Terms & Conditions</a></li>
-            <li><a href="404.html" class="nav-link">Page Not Found</a></li>
+            <li><a href="unregistered.html" class="nav-link">About</a></li>
+            <li><a href="unregistered.html" class="nav-link">Content</a></li>
+            <li><a href="unregistered.html" class="nav-link">Privacy Policy</a></li>
+            <li><a href="unregistered.html" class="nav-link">Terms & Conditions</a></li>
+            <li><a href="unregistered.html" class="nav-link">Page Not Found</a></li>
           </ul>
         </div>
       </div>
