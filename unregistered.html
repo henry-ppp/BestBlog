@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>BestBlog - Personal Blogging</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta name="description" content="This is meta description">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Neuton:wght@700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap & Main Styles -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header class="navigation">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="index.html">BestBlog</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="unregistered.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="unregistered.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="unregistered.html">Contact</a></li>
+                </ul>
+                <!-- User Info Dropdown on the right -->
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Click here to Login
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="registered.html">Login as John</a></li>
+                        <li><a class="dropdown-item" href="index.html">Login as Admin</a></li>
+                        <li><a class="dropdown-item" href="unregistered.html">Logout</a></li>
+                      </ul>
+                  </li>
+              </ul>
+            </div>
+        </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <h2 class="section-title">Recent Insights</h2>
+      
+      <div class="row">
+        <div class="col-lg-8 mb-5">
+          <div class="row">
+            <div class="col-12 mb-4">
+              <article class="card">
+                <a href="article.html">
+                  <img src="images/post/post-1.jpg" alt="Post Thumbnail" class="w-100">
+                  <div class="post-info">12 Feb 2022 | 4 min read</div>
+                  <h2><a href="article.html">Understanding the Role of AI in Modern Times</a></h2>
+                  <p>This piece examines how AI is influencing our daily lives and the future of automation...</p>
+                </a>
+                <a class="read-more-btn" href="article.html">Read Full Post</a>
+              </article>
+            </div>
+            <div class="col-md-6 mb-4">
+              <article class="card">
+                <a href="article.html">
+                  <img src="images/post/post-2.jpg" alt="Post Thumbnail" class="w-100">
+                  <div class="post-info">10 Feb 2022 | 3 min read</div>
+                  <h2><a href="article.html">Exploring the Secrets of the Ancient World</a></h2>
+                  <p>A journey through the ancient civilizations that shaped our modern world...</p>
+                </a>
+                <a class="read-more-btn" href="article.html">Read Full Post</a>
+              </article>
+            </div>
+            <!-- Additional articles go here -->
+          </div>
+        </div>
+
+        <!-- Sidebar with widgets -->
+        <div class="col-lg-4">
+
+          <div class="widget">
+            <h2>Editor’s Picks</h2>
+            <article class="card mb-4">
+              <img src="images/post/post-9.jpg" alt="Post Thumbnail" class="w-100">
+              <div class="post-info">2 min read</div>
+              <h3><a href="article.html">New Travel Guidelines in Europe</a></h3>
+              <p>Stay up to date with the latest travel regulations in the EU...</p>
+              <a class="read-more-btn" href="article.html">Read Full Post</a>
+            </article>
+            <!-- Additional recommended articles go here -->
+          </div>
+
+          <div class="widget">
+            <h2>Popular Topics</h2>
+            <ul>
+              <li><a href="#">Technology (5)</a></li>
+              <li><a href="#">Culture (3)</a></li>
+              <li><a href="#">Travel (2)</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark mt-5">
+    <div class="container section">
+      <div class="row">
+        <div class="col-lg-10 mx-auto text-center">
+          <ul class="navbar-footer p-0 d-flex justify-content-center mb-0">
+            <li><a href="unregistered.html" class="nav-link">About</a></li>
+            <li><a href="unregistered.html" class="nav-link">Content</a></li>
+            <li><a href="unregistered.html" class="nav-link">Privacy Policy</a></li>
+            <li><a href="unregistered.html" class="nav-link">Terms & Conditions</a></li>
+            <li><a href="unregistered.html" class="nav-link">Page Not Found</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS Plugins -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <script src="plugins/bootstrap/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+
+</body>
+</html>
