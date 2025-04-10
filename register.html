@@ -1,9 +1,8 @@
-<?php $registered = isset($_GET['registered']) && $_GET['registered'] == '1'; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Login - BestBlog</title>
+    <title>Register - BestBlog</title>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=5"
@@ -35,21 +34,25 @@
           class="section container"
           style="max-width: 500px; margin: 4rem auto"
         >
-          <h2 class="section-title text-center mb-4">Login</h2>
+          <h2 class="section-title text-center mb-4">Register</h2>
 
-          <?php if ($registered): ?>
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-              Registration successful! Please log in.
+          <form
+            action="register.php"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div class="mb-3">
+              <label for="full_name" class="form-label">Full Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="full_name"
+                name="full_name"
+                placeholder="Your full name"
+                required
+              />
             </div>
-          <?php endif; ?>
-          <?php if (isset($_GET['error']) && $_GET['error'] == '1'): ?>
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              Invalid email or password.
-            </div>
-          <?php endif; ?>
 
-
-          <form action="login_handler.php" method="POST">
             <div class="mb-3">
               <label for="email" class="form-label">Email address</label>
               <input
@@ -59,6 +62,30 @@
                 name="email"
                 placeholder="Enter your email"
                 required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="bio" class="form-label">Short Bio (optional)</label>
+              <textarea
+                class="form-control"
+                id="bio"
+                name="bio"
+                rows="3"
+                placeholder="Tell us about yourself..."
+              ></textarea>
+            </div>
+
+            <div class="mb-3">
+              <label for="profile_picture" class="form-label"
+                >Profile Picture (optional)</label
+              >
+              <input
+                type="file"
+                class="form-control"
+                id="profile_picture"
+                name="profile_picture"
+                accept="image/*"
               />
             </div>
 
@@ -74,13 +101,27 @@
               />
             </div>
 
+            <div class="mb-3">
+              <label for="confirm_password" class="form-label"
+                >Confirm Password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                id="confirm_password"
+                name="confirm_password"
+                placeholder="Confirm your password"
+                required
+              />
+            </div>
+
             <div class="d-grid">
-              <button type="submit" class="btn btn-primary">Login</button>
+              <button type="submit" class="btn btn-primary">Register</button>
             </div>
           </form>
 
           <p class="text-center mt-3">
-            Don’t have an account? <a href="register.html">Sign up</a>
+            Already have an account? <a href="login.html">Login</a>
           </p>
         </section>
       </main>
@@ -94,6 +135,7 @@
       </div>
     </footer>
 
+    <!-- JS Plugins -->
     <script src="plugins/jquery/jquery.min.js"></script>
     <script src="plugins/bootstrap/bootstrap.min.js"></script>
   </body>
