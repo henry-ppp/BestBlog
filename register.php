@@ -1,58 +1,48 @@
 <?php
+require 'db.php';
 
-require_once 'database.php';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $full_name = trim($_POST['full_name']);
+    $email     = trim($_POST['email']);
+    $bio       = trim($_POST['bio'] ?? '');
+    $password  = $_POST['password'];
+    $confirm   = $_POST['confirm_password'];
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = trim($_POST['name']);
-    $email = trim($_POST['email']);
-    $password = $_POST['password'];
-
-    if (empty($name) || empty($email) || empty($password)) {
-        die("All fields are required.");
+    if ($password !== $confirm) {
+        die("Passwords do not match.");
     }
 
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    // Check if email already exists
+    $stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
+    $stmt->execute([$email]);
 
-    $sql = "INSERT INTO users (name, email, password) VALUES (:name, :email, :password)";
-    $stmt = $pdo->prepare($sql);
-
-    try {
-        $stmt->execute([
-            ':name' => $name,
-            ':email' => $email,
-            ':password' => $hashedPassword
-        ]);
-        echo "Registration successful! You can now log in.";
-    } catch (PDOException $e) {
-        if ($e->getCode() == 23000) {
-            echo "This email is already registered.";
-        } else {
-            echo "Error: " . $e->getMessage();
-        }
+    if ($stmt->fetch()) {
+        die("Email already registered.");
     }
-} else {
-    ?>
-    <!DOCTYPE html>
-    <html>
 
-    <head>
-        <title>User Registration</title>
-    </head>
+    $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-    <body>
-        <h2>Register</h2>
-        <form action="register.php" method="POST">
-            <label>Name:</label><br>
-            <input type="text" name="name" required><br>
-            <label>Email:</label><br>
-            <input type="email" name="email" required><br>
-            <label>Password:</label><br>
-            <input type="password" name="password" required><br><br>
-            <input type="submit" value="Register">
-        </form>
-    </body>
+    // Insert into users table
+    $stmt = $pdo->prepare("INSERT INTO users (email, password_hash) VALUES (?, ?)");
+    $stmt->execute([$email, $password_hash]);
 
-    </html>
-    <?php
+    $user_id = $pdo->lastInsertId();
+
+    // Handle profile picture upload
+    $profile_pic_filename = null;
+    if (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] === UPLOAD_ERR_OK) {
+        $tmp_name = $_FILES['profile_picture']['tmp_name'];
+        $original_name = basename($_FILES['profile_picture']['name']);
+        $profile_pic_filename = "uploads/" . uniqid() . '_' . $original_name;
+
+        move_uploaded_file($tmp_name, $profile_pic_filename);
+    }
+
+    // Insert into profiles table
+    $stmt = $pdo->prepare("INSERT INTO profiles (user_id, full_name, bio, profile_picture) VALUES (?, ?, ?, ?)");
+    $stmt->execute([$user_id, $full_name, $bio, $profile_pic_filename]);
+
+    header("Location: login.php?registered=1");
+    exit();
 }
 ?>
