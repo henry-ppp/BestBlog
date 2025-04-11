@@ -1,4 +1,3 @@
-
 /*  typography */
 body {
   line-height: 1.6;
@@ -6,6 +5,8 @@ body {
   -webkit-font-smoothing: antialiased;
   font-size: 16px;
   color: #333;
+  background-color: #fff;
+  overflow-x: hidden;
 }
 
 p {
@@ -115,17 +116,6 @@ body {
   overflow-x: hidden;
 }
 
-::-moz-selection {
-  background: #13AE6F;
-  color: #fff;
-}
-
-::selection {
-  background: #13AE6F;
-  color: #fff;
-}
-
-/* preloader */
 .preloader {
   position: fixed;
   top: 0;
